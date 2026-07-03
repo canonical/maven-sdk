@@ -1,0 +1,28 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "enabledManagers": ["custom.regex"],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "managerFilePatterns": ["/^VERSION$/"],
+      "matchStrings": ["(?<currentValue>[0-9.]+)"],
+      "depNameTemplate": "maven",
+      "datasourceTemplate": "maven-version",
+      "versioningTemplate": "semver"
+    }
+  ],
+  "baseBranchPatterns": ["3", "4"],
+  "packageRules": [
+    {
+      "matchPackageNames": ["maven"],
+      "matchBaseBranches": ["3"],
+      "allowedVersions": "/^3\\./"
+    },
+    {
+      "matchPackageNames": ["maven"],
+      "matchBaseBranches": ["4"],
+      "allowedVersions": "/^4\\./"
+    }
+  ]
+}

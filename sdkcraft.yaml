@@ -1,0 +1,28 @@
+name: maven
+adopt-info: maven
+build-base: ubuntu@24.04
+license: Apache-2.0
+summary: Maven Workshop SDK
+description: |
+  This SDK provides Maven support.
+
+platforms:
+  amd64:
+  arm64:
+
+plugs:
+  maven-cache:
+    interface: mount
+    workshop-target: /home/workshop/.m2/repository
+
+parts:
+  maven:
+    plugin: nil
+    override-pull: |
+      VERSION=$(cat "$CRAFT_PROJECT_DIR/VERSION")
+      craftctl set version="$VERSION"
+
+      MAJOR=$(echo "$VERSION" | cut -d. -f1)
+      mkdir -p "$CRAFT_PART_INSTALL"
+      curl -fLO "https://dlcdn.apache.org/maven/maven-${MAJOR}/${VERSION}/binaries/apache-maven-${VERSION}-bin.tar.gz"
+      tar -xzf "apache-maven-${VERSION}-bin.tar.gz" --strip-components=1 -C "$CRAFT_PART_INSTALL"
