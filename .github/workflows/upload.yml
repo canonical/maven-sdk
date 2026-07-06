@@ -3,11 +3,11 @@ name: Build and Upload SDK
 on:
   push:
     branches:
-      - "[0-9]+"
+      - "[0-9]+.[0-9]+"
   workflow_dispatch:
     inputs:
       branch:
-        description: "Branch name (e.g., 9)"
+        description: "Branch name (e.g., 3.9)"
         required: true
         type: string
 
