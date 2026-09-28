@@ -12,17 +12,12 @@
       "versioningTemplate": "semver"
     }
   ],
-  "baseBranchPatterns": ["3", "4"],
+  "baseBranchPatterns": ["3.9"],
   "packageRules": [
     {
       "matchPackageNames": ["maven"],
-      "matchBaseBranches": ["3"],
-      "allowedVersions": "/^3\\./"
-    },
-    {
-      "matchPackageNames": ["maven"],
-      "matchBaseBranches": ["4"],
-      "allowedVersions": "/^4\\./"
+      "matchBaseBranches": ["3.9"],
+      "allowedVersions": "/^3\\.9\\./"
     }
   ]
 }
