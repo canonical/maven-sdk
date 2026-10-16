@@ -17,8 +17,8 @@ base: ubuntu@24.04
 sdks:
   - name: openjdk
     channel: 21/stable
-  - name: gradle
-    channel: 9/stable
+  - name: maven
+    channel: 3.9/stable
 
 actions:
   verify: mvn verify
@@ -37,7 +37,7 @@ This demonstrates a basic Maven build workflow.
 
 1. The `openjdk` SDK (or other JDK installation) is required.
 2. Your Maven project should be in your project directory.
-3. On launch, the SDK confugures `PATH`. No dependencies are pre-installed; Packages are downloaded during the first `gradle build` or `gradle run`.
+3. On launch, the SDK confugures `PATH`. No dependencies are pre-installed; Packages are downloaded during the first `maven verify` or `maven run`.
 
 ### Verify the project
 
